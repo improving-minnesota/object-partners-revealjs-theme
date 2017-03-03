@@ -11,13 +11,15 @@
     "clean": "del-cli \"dist/**/*\"",
     "sass": "node-sass src/object-partners-revealjs-theme.scss > dist/object-partners-revealjs-theme.css --include-path ./node_modules/reveal.js/css/theme/template",
     "prestyle": "npm run sass",
-    "style": "postcss dist/object-partners-revealjs-theme.css --replace"
+    "style": "postcss dist/object-partners-revealjs-theme.css --replace",
+    "start": "lite-server"
   },
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "~6.7.6",
     "cssnano": "~3.10.0",
     "del-cli": "~0.2.1",
+    "lite-server": "~2.2.2",
     "mkdirp": "~0.5.1",
     "node-sass": "~4.5.0",
     "postcss-assets": "~4.1.0",
