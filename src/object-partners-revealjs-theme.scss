@@ -1,0 +1,40 @@
+@import 'mixins';
+@import 'settings';
+@import 'variables';
+
+$backgroundColor: white;
+$headingColor: $opi-red;
+$selectionBackgroundColor: mix(black, $opi-red, 25%);
+
+@import 'custom-slides';
+
+@mixin bodyBackground() {
+  background: #FFF;
+  background: inline('./images/pattern.png');
+  background-repeat: repeat;
+  background-size: 200px;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to left, rgba($backgroundColor, 1) 25%, rgba($backgroundColor, 0));
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    height: 55px;
+    width: 170px;
+    background-image: $opi-logo-stacked;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+@import 'theme';

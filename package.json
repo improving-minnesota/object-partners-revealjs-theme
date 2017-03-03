@@ -1,0 +1,27 @@
+{
+  "name": "object-partners-revealjs-theme",
+  "version": "1.0.0",
+  "main": "dist/object-partners-revealjs-theme.css",
+  "repository": "git@github.com:DSchau/object-partners-revealjs-theme.git",
+  "author": "Dustin Schau <dustinschau@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "npm run clean && mkdirp dist",
+    "build": "npm run style",
+    "clean": "del-cli \"dist/**/*\"",
+    "sass": "node-sass src/object-partners-revealjs-theme.scss > dist/object-partners-revealjs-theme.css --include-path ./node_modules/reveal.js/css/theme/template",
+    "prestyle": "npm run sass",
+    "style": "postcss dist/object-partners-revealjs-theme.css --replace"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "~6.7.6",
+    "cssnano": "~3.10.0",
+    "del-cli": "~0.2.1",
+    "mkdirp": "~0.5.1",
+    "node-sass": "~4.5.0",
+    "postcss-assets": "~4.1.0",
+    "postcss-cli": "~3.0.0-beta",
+    "reveal.js": "~3.4.1"
+  }
+}

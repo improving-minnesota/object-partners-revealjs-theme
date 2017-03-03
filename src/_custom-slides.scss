@@ -1,0 +1,6 @@
+.reveal {
+  section.title-slide, section[title-slide], section[data-title-slide] {
+    background-image: include('./images/title-slide.png');
+    background-size: stretch;
+  }
+}
