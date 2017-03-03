@@ -5,8 +5,7 @@
 $backgroundColor: white;
 $headingColor: $opi-red;
 $selectionBackgroundColor: mix(black, $opi-red, 25%);
-
-@import 'custom-slides';
+$linkColor: $opi-red;
 
 @mixin bodyBackground() {
   background: #FFF;
@@ -27,13 +26,12 @@ $selectionBackgroundColor: mix(black, $opi-red, 25%);
   &:after {
     content: '';
     position: absolute;
-    top: 5px;
-    left: 5px;
-    height: 55px;
-    width: 170px;
-    background-image: $opi-logo-stacked;
-    background-size: contain;
-    background-repeat: no-repeat;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 72px;
+    width: 100%;
+    background: inline('./images/OPi-logo-long.png') no-repeat right 10px center / auto 50%, linear-gradient(to right, $opi-red, $opi-red 1.25%, $opi-black 1.2%, $opi-black 50%, mix(white, $opi-black, 10%));
   }
 }
 
