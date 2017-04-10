@@ -5,7 +5,12 @@
 $backgroundColor: white;
 $headingColor: $opi-red;
 $selectionBackgroundColor: mix(black, $opi-red, 25%);
+$mainColor: lighten(black, 0.125);
 $linkColor: $opi-red;
+
+pre code {
+  background: $mainColor;
+}
 
 @mixin bodyBackground() {
   background: #FFF;
