@@ -4,7 +4,7 @@ A Reveal.js theme to get a jump-start on a sweet looking OPi presentation
 
 ### Reveal.js style
 
-![slide deck](./assets/slide-deck.jpg)
+![slide deck](./assets/slide-deck.png)
 
 (Presumes webpack, but works fine as a `<link rel="stylesheet">` as well)
 
