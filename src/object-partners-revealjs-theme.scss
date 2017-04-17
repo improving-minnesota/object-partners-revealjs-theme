@@ -7,15 +7,61 @@ $headingColor: $opi-red;
 $selectionBackgroundColor: mix(black, $opi-red, 25%);
 $mainColor: lighten(black, 0.25);
 $linkColor: $opi-red;
+$header-height: 56px;
+
+$base-index: 1;
+
+@mixin absolute() {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
 pre code {
   background: #272822;
   color: #DDD;
 }
 
+html {
+  &:before {
+    content: '';
+    background: inline('./images/OPi-logo.svg') no-repeat right 10px center / auto 50%;
+    @include absolute();
+    height: $header-height;
+    width: 100%;
+    z-index: $base-index + 2;
+  }
+  &:after {
+    @include absolute();
+    height: $header-height;
+    width: 100%;
+    z-index: $base-index;
+    background-color: $opi-black;
+  }
+  &.title, &.title-slide, &.heading, &.heading-slide {
+    h1, h2 {
+      text-align: left;
+    }
+    h1 {
+      color: white;
+    }
+    &:after {
+      background: linear-gradient(65deg, rgba(0, 0, 0, 1) 15%, rgba(40, 40, 40, 1) 75%);
+      height: 65%;
+      transform: skewY(-8deg);
+      transform-origin: 0;
+    }
+    body:after {
+      width: 0;
+    }
+  }
+}
+
 @mixin bodyBackground() {
-  background: #FFF;
-  background: inline('./images/pattern.png');
+  background: inline('./images/pattern.svg');
   background-repeat: repeat;
   background-size: 200px;
   &:before {
@@ -27,17 +73,14 @@ pre code {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to left, rgba($backgroundColor, 1) 25%, rgba($backgroundColor, 0));
+    background: linear-gradient(to left, rgba($backgroundColor, 1) 25%, rgba($backgroundColor, 0));
   }
   &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 56px;
-    width: 100%;
-    background: inline('./images/OPi-logo-long.png') no-repeat right 10px center / auto 50%, linear-gradient(to right, $opi-red, $opi-red 1.25%, $opi-black 1.2%, $opi-black 50%, mix(white, $opi-black, 10%));
+    @include absolute();
+    height: $header-height;
+    width: 1%;
+    background-color: $opi-red;
+    z-index: $base-index + 1;
   }
 }
 
