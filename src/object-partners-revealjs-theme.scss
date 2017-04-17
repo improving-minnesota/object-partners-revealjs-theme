@@ -7,6 +7,18 @@ $headingColor: $opi-red;
 $selectionBackgroundColor: mix(black, $opi-red, 25%);
 $mainColor: lighten(black, 0.25);
 $linkColor: $opi-red;
+$header-height: 56px;
+
+$base-index: 1;
+
+@mixin absolute() {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 
 pre code {
   background: #272822;
@@ -17,24 +29,17 @@ html {
   &:before {
     content: '';
     background: inline('./images/OPi-logo.svg') no-repeat right 10px center / auto 50%;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 56px;
+    @include absolute();
+    height: $header-height;
     width: 100%;
-    z-index: 2;
+    z-index: $base-index + 2;
   }
   &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 56px;
+    @include absolute();
+    height: $header-height;
     width: 100%;
-    z-index: 1;
-    background: linear-gradient(to right, $opi-red, $opi-red 1.25%, $opi-black 1.2%, $opi-black 50%, mix(white, $opi-black, 10%));
+    z-index: $base-index;
+    background-color: $opi-black;
   }
   &.title, &.title-slide, &.heading, &.heading-slide {
     h1, h2 {
@@ -48,6 +53,9 @@ html {
       height: 65%;
       transform: skewY(-8deg);
       transform-origin: 0;
+    }
+    body:after {
+      width: 0;
     }
   }
 }
@@ -66,6 +74,13 @@ html {
     width: 100%;
     height: 100%;
     background: linear-gradient(to left, rgba($backgroundColor, 1) 25%, rgba($backgroundColor, 0));
+  }
+  &:after {
+    @include absolute();
+    height: $header-height;
+    width: 1%;
+    background-color: $opi-red;
+    z-index: $base-index + 1;
   }
 }
 
