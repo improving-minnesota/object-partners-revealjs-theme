@@ -16,7 +16,7 @@ pre code {
 html {
   &:before {
     content: '';
-    // background: inline('./images/OPi-logo.svg') no-repeat right 10px center / auto 50%;
+    background: inline('./images/OPi-logo.svg') no-repeat right 10px center / auto 50%;
     position: absolute;
     left: 0;
     top: 0;
@@ -37,6 +37,12 @@ html {
     background: linear-gradient(to right, $opi-red, $opi-red 1.25%, $opi-black 1.2%, $opi-black 50%, mix(white, $opi-black, 10%));
   }
   &.title, &.title-slide, &.heading, &.heading-slide {
+    h1, h2 {
+      text-align: left;
+    }
+    h1 {
+      color: white;
+    }
     &:after {
       background: linear-gradient(65deg, rgba(0, 0, 0, 1) 15%, rgba(40, 40, 40, 1) 75%);
       height: 65%;
@@ -47,8 +53,7 @@ html {
 }
 
 @mixin bodyBackground() {
-  background: #FFF;
-  // background: inline('./images/pattern.svg');
+  background: inline('./images/pattern.svg');
   background-repeat: repeat;
   background-size: 200px;
   &:before {
