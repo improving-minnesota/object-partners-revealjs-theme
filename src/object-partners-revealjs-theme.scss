@@ -13,11 +13,35 @@ pre code {
   color: #DDD;
 }
 
+@mixin topRightLogo($includeGradient: true) {
+  $bg-image: inline('./images/OPi-logo.svg') no-repeat right 10px center / auto 50%;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 56px;
+  width: 100%;
+  background: if($includeGradient, ($bg-image, linear-gradient(to right, $opi-red, $opi-red 1.25%, $opi-black 1.2%, $opi-black 50%, mix(white, $opi-black, 10%))), $bg-image);
+}
+
 @mixin bodyBackground() {
   background: #FFF;
-  background: inline('./images/pattern.png');
+  background: inline('./images/pattern.svg');
   background-repeat: repeat;
   background-size: 200px;
+  &.title-slide {
+    .__title_slide_container__ {
+      @include topRightLogo(false);
+      z-index: 2;
+    }
+    &:after {
+      background: linear-gradient(65deg, rgba(0, 0, 0, 1) 15%, rgba(40, 40, 40, 1) 75%);
+      height: 65%;
+      transform: skewY(-8deg);
+      transform-origin: 0;
+    }
+  }
   &:before {
     content: '';
     position: absolute;
@@ -30,14 +54,7 @@ pre code {
     background-image: linear-gradient(to left, rgba($backgroundColor, 1) 25%, rgba($backgroundColor, 0));
   }
   &:after {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 56px;
-    width: 100%;
-    background: inline('./images/OPi-logo-long.png') no-repeat right 10px center / auto 50%, linear-gradient(to right, $opi-red, $opi-red 1.25%, $opi-black 1.2%, $opi-black 50%, mix(white, $opi-black, 10%));
+    @include topRightLogo();
   }
 }
 
