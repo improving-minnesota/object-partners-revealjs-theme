@@ -38,7 +38,7 @@ html {
     @include absolute();
     height: $header-height;
     width: 100%;
-    z-index: $base-index;
+    z-index: $base-index - 1;
     background-color: $opi-black;
   }
   &.title, &.title-slide, &.heading, &.heading-slide {
@@ -47,6 +47,9 @@ html {
     }
     h1 {
       color: white;
+    }
+    section.current {
+      transform: skewY(-8deg);
     }
     &:after {
       background: linear-gradient(65deg, rgba(0, 0, 0, 1) 15%, rgba(40, 40, 40, 1) 75%);
