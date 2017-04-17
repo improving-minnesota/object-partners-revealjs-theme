@@ -13,28 +13,30 @@ pre code {
   color: #DDD;
 }
 
-@mixin topRightLogo($includeGradient: true) {
-  $bg-image: inline('./images/OPi-logo.svg') no-repeat right 10px center / auto 50%;
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  height: 56px;
-  width: 100%;
-  background: if($includeGradient, ($bg-image, linear-gradient(to right, $opi-red, $opi-red 1.25%, $opi-black 1.2%, $opi-black 50%, mix(white, $opi-black, 10%))), $bg-image);
-}
-
-@mixin bodyBackground() {
-  background: #FFF;
-  background: inline('./images/pattern.svg');
-  background-repeat: repeat;
-  background-size: 200px;
-  &.title-slide {
-    .__title_slide_container__ {
-      @include topRightLogo(false);
-      z-index: 2;
-    }
+html {
+  &:before {
+    content: '';
+    // background: inline('./images/OPi-logo.svg') no-repeat right 10px center / auto 50%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 56px;
+    width: 100%;
+    z-index: 2;
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    width: 100%;
+    z-index: 1;
+    background: linear-gradient(to right, $opi-red, $opi-red 1.25%, $opi-black 1.2%, $opi-black 50%, mix(white, $opi-black, 10%));
+  }
+  &.title, &.title-slide, &.heading, &.heading-slide {
     &:after {
       background: linear-gradient(65deg, rgba(0, 0, 0, 1) 15%, rgba(40, 40, 40, 1) 75%);
       height: 65%;
@@ -42,6 +44,13 @@ pre code {
       transform-origin: 0;
     }
   }
+}
+
+@mixin bodyBackground() {
+  background: #FFF;
+  // background: inline('./images/pattern.svg');
+  background-repeat: repeat;
+  background-size: 200px;
   &:before {
     content: '';
     position: absolute;
@@ -51,10 +60,7 @@ pre code {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: linear-gradient(to left, rgba($backgroundColor, 1) 25%, rgba($backgroundColor, 0));
-  }
-  &:after {
-    @include topRightLogo();
+    background: linear-gradient(to left, rgba($backgroundColor, 1) 25%, rgba($backgroundColor, 0));
   }
 }
 

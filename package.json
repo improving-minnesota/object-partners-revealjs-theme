@@ -1,7 +1,7 @@
 {
   "name": "object-partners-revealjs-theme",
   "version": "1.0.0",
-  "main": "dist/object-partners-revealjs-theme.css",
+  "main": "./dist/object-partners-revealjs-theme.css",
   "repository": "git@github.com:DSchau/object-partners-revealjs-theme.git",
   "author": "Dustin Schau <dustinschau@gmail.com>",
   "license": "MIT",
