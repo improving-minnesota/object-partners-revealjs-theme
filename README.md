@@ -32,4 +32,9 @@ Reveal.initialize({
 });
 ```
 
+## Screenshots
+
+![Title slide](./assets/title-slide.png)
+![Header slide](./assets/header-slide.png)
+
 [config]: https://github.com/objectpartners/object-partners-presentation-config
