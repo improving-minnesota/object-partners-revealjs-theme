@@ -4,6 +4,7 @@
 
 $backgroundColor: white;
 $headingColor: $opi-red;
+$headingTextTransform: none;
 $selectionBackgroundColor: mix(black, $opi-red, 25%);
 $mainColor: lighten(black, 0.25);
 $linkColor: $opi-red;
@@ -25,6 +26,11 @@ pre code {
   color: #DDD;
 }
 
+.reveal section blockquote {
+	background: white;
+  border-left: 10px solid mix(white, $opi-black, 50%);
+}
+
 html {
   &:before {
     content: '';
@@ -39,7 +45,8 @@ html {
     height: $header-height;
     width: 100%;
     z-index: $base-index - 1;
-    background-color: $opi-black;
+    background: linear-gradient(to left, mix(white, $opi-black, 10%), black 75%);
+
   }
   &.title, &.title-slide, &.heading, &.heading-slide {
     h1, h2 {
@@ -52,7 +59,7 @@ html {
       transform: skewY(-8deg);
     }
     &:after {
-      background: linear-gradient(65deg, rgba(0, 0, 0, 1) 15%, rgba(40, 40, 40, 1) 75%);
+      background: linear-gradient(65deg, black, mix(white, $opi-black, 10%) 75%);
       height: 65%;
       transform: skewY(-8deg);
       transform-origin: 0;
