@@ -8,6 +8,7 @@ $headingTextTransform: none;
 $selectionBackgroundColor: mix(black, $opi-red, 25%);
 $mainColor: lighten(black, 0.25);
 $linkColor: $opi-red;
+$linkColorHover: mix(black, $opi-red, 25%);
 $header-height: 56px;
 
 $base-index: 1;
@@ -46,6 +47,7 @@ html {
     width: 100%;
     z-index: $base-index - 1;
     background: linear-gradient(to left, mix(white, $opi-black, 10%), black 75%);
+    transition: height 500ms ease-in-out, background 250ms ease-in-out;
 
   }
   &.title, &.title-slide, &.heading, &.heading-slide {
@@ -91,6 +93,8 @@ html {
     width: 1%;
     background-color: $opi-red;
     z-index: $base-index + 1;
+    transition: width 250ms ease-in-out;
+    transform-origin: left;
   }
 }
 
