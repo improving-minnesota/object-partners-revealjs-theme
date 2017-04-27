@@ -9,6 +9,7 @@
   "author": "Dustin Schau <dustinschau@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "precommit": "npm run build && git add dist --all",
     "prebuild": "npm run clean && mkdirp dist",
     "build": "npm run style",
     "clean": "del-cli \"dist/**/*\"",
@@ -22,6 +23,7 @@
     "autoprefixer": "~6.7.6",
     "cssnano": "~3.10.0",
     "del-cli": "~0.2.1",
+    "husky": "~0.13.3",
     "lite-server": "~2.2.2",
     "mkdirp": "~0.5.1",
     "node-sass": "~4.5.0",
