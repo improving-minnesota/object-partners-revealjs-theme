@@ -1,6 +1,5 @@
 {
   "name": "@objectpartners/revealjs-theme",
-  "version": "1.0.0",
   "main": "revealjs-theme.css",
   "repository": "git@github.com:DSchau/object-partners-revealjs-theme.git",
   "author": "Dustin Schau <dustinschau@gmail.com>",
@@ -11,9 +10,11 @@
   "scripts": {
     "prebuild": "npm run clean && mkdirp dist",
     "build": "npm run style",
-    "predeploy": "npm run build",
-    "deploy": "node build/copy-package-json.js",
+    "prebuild:publish": "npm run build && cd dist",
+    "build:publish": "",
+    "postbuild:publish": "cd ../",
     "clean": "del-cli \"dist/**/*\"",
+    "package": "node build/copy-package-json.js",
     "sass": "node-sass src/revealjs-theme.scss > revealjs-theme.css --source-map true --output dist dist/revealjs-theme.css --include-path ./node_modules/reveal.js/css/theme/template",
     "prestyle": "npm run sass",
     "style": "postcss dist/revealjs-theme.css --replace",
