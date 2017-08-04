@@ -1,31 +1,36 @@
 {
-  "name": "object-partners-revealjs-theme",
-  "version": "1.0.1",
-  "main": "./dist/object-partners-revealjs-theme.css",
-  "files": [
-    "dist"
-  ],
+  "name": "@objectpartners/revealjs-theme",
+  "version": "1.0.0",
+  "main": "revealjs-theme.css",
   "repository": "git@github.com:DSchau/object-partners-revealjs-theme.git",
   "author": "Dustin Schau <dustinschau@gmail.com>",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "precommit": "npm run build && git add dist --all",
     "prebuild": "npm run clean && mkdirp dist",
     "build": "npm run style",
+    "predeploy": "npm run build",
+    "deploy": "node build/copy-package-json.js",
     "clean": "del-cli \"dist/**/*\"",
-    "sass": "node-sass src/object-partners-revealjs-theme.scss > dist/object-partners-revealjs-theme.css --include-path ./node_modules/reveal.js/css/theme/template",
+    "sass": "node-sass src/revealjs-theme.scss > revealjs-theme.css --source-map true --output dist dist/revealjs-theme.css --include-path ./node_modules/reveal.js/css/theme/template",
     "prestyle": "npm run sass",
-    "style": "postcss dist/object-partners-revealjs-theme.css --replace",
-    "start": "lite-server"
+    "style": "postcss dist/revealjs-theme.css --replace",
+    "start": "lite-server",
+    "pretest": "npm run build",
+    "test": "jest",
+    "test:watch": "npm run test -- --watch"
   },
   "dependencies": {},
   "devDependencies": {
     "autoprefixer": "~6.7.6",
     "cssnano": "~3.10.0",
     "del-cli": "~0.2.1",
-    "husky": "~0.13.3",
+    "jest": "^20.0.4",
     "lite-server": "~2.2.2",
     "mkdirp": "~0.5.1",
+    "mz": "^2.6.0",
     "node-sass": "~4.5.0",
     "postcss-assets": "~4.1.0",
     "postcss-cli": "~3.0.0-beta",
